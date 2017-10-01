@@ -4,8 +4,10 @@ var methodOverride = require('method-override');
 var bodyParser = require('body-parser');
 
 var app = express();
+var PORT = process.env.PORT || 3000;
+console.log("Working at " + PORT);
 
-app.use(express.static(process.cwd() + '/public'));
+app.use(express.static('app'));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -17,5 +19,4 @@ app.set('view engine', 'handlebars');
 var router = require('./controllers/burgers_controller.js');
 app.use('/', router);
 
-var PORT = process.env.PORT || 3000;
 app.listen(PORT);
