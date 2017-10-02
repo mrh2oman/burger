@@ -23,10 +23,10 @@
     "homepage": "https://github.com/mrh2oman/burger#readme",
     "dependencies": {
         "body-parser": "^1.18.2",
-        "express": "^4.15.5",
+        "express": "^4.16.1",
         "express-handlebars": "^3.0.0",
         "foobar": "^1.1.0",
-        "method-override": "^2.3.9",
+        "method-override": "^2.3.10",
         "mysql": "^2.14.1"
     }
 }
