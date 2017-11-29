@@ -1,26 +1,22 @@
-var orm = require("../config/orm.js");
+// Import orm.js
+const orm = require("../config/orm.js");
 
-var burger = {
+module.exports = {
+  selectAll: function(cb) {
+    orm.selectAll(function(res) {
+      cb(res);
+    });
+  },
 
-    all: function(cb) {
-        orm.all(function(res) {
-            cb(res);
-        });
-    },
+  insertOne: function(burger_name, cb) {
+    orm.insertOne(burger_name, function(res) {
+      cb(res);
+    });
+  },
 
-    insert: function(burger_name, cb) {
-        orm.insert(burger_name, function(res) {
-            cb(res);
-        });
-    },
-
-    update: function(burgerID, cb) {
-        orm.update(burgerID, function(res) {
-            cb(res);
-        });
-    },
-}
-
-
-
-module.exports = burger;
+  updateOne: function(id, cb) {
+    orm.updateOne(id, function(res) {
+      cb(res);
+    });
+  }
+};
