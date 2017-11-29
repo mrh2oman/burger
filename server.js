@@ -1,22 +1,27 @@
-var express = require('express');
-var exphbs = require('express-handlebars');
-var methodOverride = require('method-override');
-var bodyParser = require('body-parser');
+const express = require("express");
+const methodOverride = require("method-override");
+const bodyParser = require("body-parser");
 
-var app = express();
-var PORT = process.env.PORT || 8000;
-console.log("Working at " + PORT);
+const app = express();
 
-app.use(express.static(__dirname + '/public'));
+const PORT = process.env.PORT || 8080;
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.text());
+app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
-var exphbs = require('express-handlebars');
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
-app.set('view engine', 'handlebars');
+app.use(express.static("public"));
 
+app.use(methodOverride("_method"));
 
-var router = require('./controllers/burgers_controller.js');
-app.use('/', router);
+const exphbs = require("express-handlebars");
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
-app.listen(PORT);
+const routes = require("./controllers/burgers_controllers.js");
+app.use("/", routes);
+
+app.listen(PORT, function() {
+  console.log("App listening on PORT: " + PORT);
+});

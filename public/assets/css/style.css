@@ -2,6 +2,36 @@
     max-width: 50%;
 }
 
+html,
 body {
     background: url("../images/subtle_white_feathers.png");
+}
+
+.bgimg {
+    position: relative;
+    /* opacity: 0.65; */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h3 {
+    background: rgb(230, 241, 241);
+    text-align: center;
+}
+
+button {
+    background-color: rgb(15, 29, 223);
+    /* Green */
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 50%;
+    margin: 4px 2px;
+    cursor: pointer;
 }
